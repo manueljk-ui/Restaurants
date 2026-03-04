@@ -1,16 +1,117 @@
 // ═══════════════════════════════════════════════════
-//  DONNÉES PAR DÉFAUT
+//  DONNÉES — TA LISTE PERSONNELLE
 // ═══════════════════════════════════════════════════
 
 const SAMPLE = [
-  { id: 1, name: "Bistrot Paul Bert",   cuisine: "🇫🇷 Français",    price: "€€€",  location: "Paris 11e",       note: "Blanquette de veau incroyable",     status: "tested",  rating: 5 },
-  { id: 2, name: "Nodaiwa",             cuisine: "🇯🇵 Japonais",    price: "€€€",  location: "Paris 1er",       note: "Spécialité anguille, réserver",     status: "tested",  rating: 4 },
-  { id: 3, name: "Al Taglio",           cuisine: "🍕 Pizza",         price: "€",    location: "Paris 3e",        note: "Pizza romaine à la coupe",          status: "tested",  rating: 4 },
-  { id: 4, name: "Le Baratin",          cuisine: "🇫🇷 Français",    price: "€€",   location: "Paris 20e",       note: "Cuisine bistronomique, carte courte",status: "pending", rating: 0 },
-  { id: 5, name: "Septime",             cuisine: "🇫🇷 Français",    price: "€€€€", location: "Paris 11e",       note: "Étoilé, réserver 2 mois à l'avance",status: "pending", rating: 0 },
-  { id: 6, name: "Sushi Yoshinori",     cuisine: "🇯🇵 Japonais",    price: "€€€€", location: "Paris 6e",        note: "Omakase, chef japonais",            status: "pending", rating: 0 },
-  { id: 7, name: "Trattoria Popolare",  cuisine: "🇮🇹 Italien",     price: "€€",   location: "Paris 9e",        note: "Carbonara authentique",             status: "tested",  rating: 5 },
-  { id: 8, name: "Tavline",             cuisine: "🇱🇧 Libanais",    price: "€€",   location: "Paris 4e",        note: "Mezze et falafel maison",           status: "pending", rating: 0 },
+
+  // ─── TESTÉS ✅ ───────────────────────────────────
+
+  { id: 1,  name: "Crispy Soul",               cuisine: "🍗 Soul Food / Américain",   price: "€€",   location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 2,  name: "Baba Zulu",                 cuisine: "🌍 Africain",                price: "€€",   location: "Paris",                note: "Visité 3 fois 🔥",            status: "tested",  rating: 5 },
+  { id: 3,  name: "Benedict",                  cuisine: "🥞 Brunch",                  price: "€€",   location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 4,  name: "Menchiki Ramen",            cuisine: "🇯🇵 Japonais",               price: "€€",   location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 5,  name: "Restau Coréen",             cuisine: "🇰🇷 Coréen",                 price: "€€",   location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 6,  name: "Wings & Chill",             cuisine: "🍗 Soul Food / Américain",   price: "€",    location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 7,  name: "Tiger Milk",                cuisine: "🌶 Péruvien / Fusion",       price: "€€",   location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 8,  name: "Auber Mama",                cuisine: "🌍 Africain",                price: "€€",   location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 9,  name: "Mama Primi",                cuisine: "🇮🇹 Italien",                price: "€€",   location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 10, name: "Leon",                      cuisine: "🐟 Poissons / Fruits de mer",price: "€",    location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 11, name: "Cali Uptown",               cuisine: "🍔 Burger",                  price: "€€",   location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 12, name: "Rodizio Brazil",            cuisine: "🇧🇷 Brésilien",              price: "€€€",  location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 13, name: "Gemini Family",             cuisine: "🍕 Pizza",                   price: "€€",   location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 14, name: "Zicatela Rex",              cuisine: "🇲🇽 Mexicain",               price: "€€",   location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 15, name: "Trantranzai",               cuisine: "🌏 Asiatique / Fusion",      price: "€€",   location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 16, name: "Mama Shelter Défense",      cuisine: "🍔 Burger",                  price: "€€€",  location: "La Défense",           note: "",                            status: "tested",  rating: 0 },
+  { id: 17, name: "Black N White Burger",      cuisine: "🍔 Burger",                  price: "€€",   location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 18, name: "Food Court Paris 13",       cuisine: "🌏 Asiatique / Fusion",      price: "€",    location: "Paris 13e",            note: "",                            status: "tested",  rating: 0 },
+  { id: 19, name: "Indiana Café",              cuisine: "🍔 Burger",                  price: "€€",   location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 20, name: "Felicita",                  cuisine: "🇮🇹 Italien",                price: "€€",   location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 21, name: "Discret Concept",           cuisine: "🍽 Gastronomique / Fusion",  price: "€€€",  location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 22, name: "On The Babe",               cuisine: "🥞 Brunch",                  price: "€€",   location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 23, name: "Capri",                     cuisine: "🇮🇹 Italien",                price: "€€",   location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 24, name: "Presto Fresco",             cuisine: "🇮🇹 Italien",                price: "€",    location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 25, name: "Shiso Burger",              cuisine: "🍔 Burger",                  price: "€€",   location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 26, name: "Dalia",                     cuisine: "🇱🇧 Libanais / Moyen-Orient",price: "€€",   location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 27, name: "Chester",                   cuisine: "🍔 Burger",                  price: "€€",   location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 28, name: "Parenthèses",               cuisine: "🇫🇷 Français",               price: "€€",   location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 29, name: "Mian Fan",                  cuisine: "🇨🇳 Chinois",                price: "€",    location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 30, name: "Comme Gangnam",             cuisine: "🇰🇷 Coréen",                 price: "€€",   location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 31, name: "Paradis du Fruit",          cuisine: "🥗 Végétarien / Healthy",    price: "€€",   location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 32, name: "Bouillon Pigalle",          cuisine: "🇫🇷 Français",               price: "€",    location: "Paris 9e",             note: "",                            status: "tested",  rating: 0 },
+  { id: 33, name: "Bouillon Chartier",         cuisine: "🇫🇷 Français",               price: "€",    location: "Paris 9e",             note: "",                            status: "tested",  rating: 0 },
+  { id: 34, name: "Bouillon Montparnasse",     cuisine: "🇫🇷 Français",               price: "€",    location: "Paris 14e",            note: "",                            status: "tested",  rating: 0 },
+  { id: 35, name: "Bar Bisou Paris 3",         cuisine: "🍸 Bar / Tapas",             price: "€€",   location: "Paris 3e",             note: "",                            status: "tested",  rating: 0 },
+  { id: 36, name: "Bar Bisou République",      cuisine: "🍸 Bar / Tapas",             price: "€€",   location: "Paris 11e",            note: "",                            status: "tested",  rating: 0 },
+  { id: 37, name: "Perchoir Ménilmontant",     cuisine: "🍸 Bar / Tapas",             price: "€€€",  location: "Paris 20e",            note: "",                            status: "tested",  rating: 0 },
+  { id: 38, name: "Carnavana",                 cuisine: "🌶 Péruvien / Fusion",       price: "€€",   location: "Paris 11e",            note: "",                            status: "tested",  rating: 0 },
+  { id: 39, name: "Ebis",                      cuisine: "🇯🇵 Japonais",               price: "€€",   location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 40, name: "Maison Anamour",            cuisine: "🌍 Africain",                price: "€€",   location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 41, name: "A Fole",                    cuisine: "🇫🇷 Français",               price: "€€",   location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 42, name: "Under The Sea",             cuisine: "🐟 Poissons / Fruits de mer",price: "€€€",  location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 43, name: "Maria by Cesar",            cuisine: "🇲🇽 Mexicain",               price: "€€",   location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 44, name: "Groupomimo",                cuisine: "🇯🇵 Japonais",               price: "€€",   location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 45, name: "Le Melt",                   cuisine: "🍔 Burger",                  price: "€€",   location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 46, name: "Les Bascules",              cuisine: "🇫🇷 Français",               price: "€€",   location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 47, name: "Chez Gladines",             cuisine: "🇫🇷 Français",               price: "€",    location: "Paris 13e",            note: "Cuisine basque",              status: "tested",  rating: 0 },
+  { id: 48, name: "Cavale",                    cuisine: "🍽 Gastronomique / Fusion",  price: "€€€",  location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 49, name: "Shinko",                    cuisine: "🇯🇵 Japonais",               price: "€€",   location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 50, name: "Brasserie Saint Honoré",    cuisine: "🇫🇷 Français",               price: "€€€",  location: "Paris 1er",            note: "",                            status: "tested",  rating: 0 },
+  { id: 51, name: "East Mamma",                cuisine: "🇮🇹 Italien",                price: "€€",   location: "Paris 11e",            note: "",                            status: "tested",  rating: 0 },
+  { id: 52, name: "Obrigado Rodizio",          cuisine: "🇧🇷 Brésilien",              price: "€€",   location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 53, name: "Villa Yora",                cuisine: "🌍 Africain",                price: "€€",   location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 54, name: "Buttler",                   cuisine: "🍔 Burger",                  price: "€€",   location: "Gennevilliers",        note: "",                            status: "tested",  rating: 0 },
+  { id: 55, name: "Joyo Opéra",                cuisine: "🇯🇵 Japonais",               price: "€€",   location: "Paris 9e",             note: "",                            status: "tested",  rating: 0 },
+  { id: 56, name: "Île",                       cuisine: "🇫🇷 Français",               price: "€€€",  location: "Issy-les-Moulineaux",  note: "",                            status: "tested",  rating: 0 },
+  { id: 57, name: "Café des Marronniers",      cuisine: "🇫🇷 Français",               price: "€€",   location: "Tuileries, Paris 1er", note: "",                            status: "tested",  rating: 0 },
+  { id: 58, name: "Fujiyama",                  cuisine: "🇯🇵 Japonais",               price: "€€",   location: "Pierrelaye",           note: "",                            status: "tested",  rating: 0 },
+  { id: 59, name: "Meida",                     cuisine: "🌍 Africain",                price: "€€",   location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 60, name: "Daroco",                    cuisine: "🇮🇹 Italien",                price: "€€€",  location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 61, name: "Chez Mariam",               cuisine: "🇱🇧 Libanais / Moyen-Orient",price: "€€",   location: "Paris 18e",            note: "",                            status: "tested",  rating: 0 },
+  { id: 62, name: "Uma Nota",                  cuisine: "🇧🇷 Brésilien",              price: "€€",   location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 63, name: "Cèpes et Figues",           cuisine: "🇫🇷 Français",               price: "€€€",  location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 64, name: "Le Palais Clichy",          cuisine: "🇫🇷 Français",               price: "€€",   location: "Clichy",               note: "",                            status: "tested",  rating: 0 },
+  { id: 65, name: "Bahiana",                   cuisine: "🇧🇷 Brésilien",              price: "€€",   location: "Cergy",                note: "",                            status: "tested",  rating: 0 },
+  { id: 66, name: "Adela",                     cuisine: "🌶 Péruvien / Fusion",       price: "€€",   location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+  { id: 67, name: "Poni",                      cuisine: "🍽 Gastronomique / Fusion",  price: "€€€",  location: "Paris",                note: "",                            status: "tested",  rating: 0 },
+
+  // ─── À TESTER ⏳ ─────────────────────────────────
+
+  { id: 101, name: "Mama Jackson",             cuisine: "🍗 Soul Food / Américain",   price: "€€",   location: "Paris",                note: "",                            status: "pending", rating: 0 },
+  { id: 102, name: "Alimento",                 cuisine: "🇮🇹 Italien",                price: "€€",   location: "Paris",                note: "",                            status: "pending", rating: 0 },
+  { id: 103, name: "Le Shack",                 cuisine: "🍔 Burger",                  price: "€€",   location: "Paris",                note: "",                            status: "pending", rating: 0 },
+  { id: 104, name: "Libertino",                cuisine: "🇮🇹 Italien",                price: "€€",   location: "Paris",                note: "",                            status: "pending", rating: 0 },
+  { id: 105, name: "Liberta",                  cuisine: "🇮🇹 Italien",                price: "€€",   location: "Paris",                note: "",                            status: "pending", rating: 0 },
+  { id: 106, name: "Kong",                     cuisine: "🍽 Gastronomique / Fusion",  price: "€€€€", location: "Paris 1er",            note: "Rooftop vue sur la Seine",    status: "pending", rating: 0 },
+  { id: 107, name: "Musée d'Art Moderne",      cuisine: "🇫🇷 Français",               price: "€€€",  location: "Paris 16e",            note: "",                            status: "pending", rating: 0 },
+  { id: 108, name: "Kokodak",                  cuisine: "🍗 Soul Food / Américain",   price: "€€",   location: "Paris",                note: "",                            status: "pending", rating: 0 },
+  { id: 109, name: "Navigli",                  cuisine: "🇮🇹 Italien",                price: "€€",   location: "Paris",                note: "Buffet italien à volonté",    status: "pending", rating: 0 },
+  { id: 110, name: "Jacobine",                 cuisine: "🇫🇷 Français",               price: "€€",   location: "Paris 6e",             note: "",                            status: "pending", rating: 0 },
+  { id: 111, name: "Manfred",                  cuisine: "🥩 Viande / Grill",          price: "€€€",  location: "Paris",                note: "",                            status: "pending", rating: 0 },
+  { id: 112, name: "Braun Notes Coffee",       cuisine: "☕ Café / Brunch",            price: "€",    location: "Paris",                note: "",                            status: "pending", rating: 0 },
+  { id: 113, name: "Restau Paris Pontoise",    cuisine: "🇫🇷 Français",               price: "€€",   location: "Paris",                note: "",                            status: "pending", rating: 0 },
+  { id: 114, name: "Quai Ouest",               cuisine: "🇫🇷 Français",               price: "€€€",  location: "Saint-Cloud",          note: "",                            status: "pending", rating: 0 },
+  { id: 115, name: "Siena",                    cuisine: "🇮🇹 Italien",                price: "€€€",  location: "Paris",                note: "",                            status: "pending", rating: 0 },
+  { id: 116, name: "Bamboche",                 cuisine: "🇫🇷 Français",               price: "€€",   location: "Paris",                note: "",                            status: "pending", rating: 0 },
+  { id: 117, name: "Polpo",                    cuisine: "🇮🇹 Italien",                price: "€€",   location: "Paris",                note: "",                            status: "pending", rating: 0 },
+  { id: 118, name: "Nessia",                   cuisine: "🌍 Africain",                price: "€€",   location: "Paris",                note: "",                            status: "pending", rating: 0 },
+  { id: 119, name: "Colère",                   cuisine: "🍽 Gastronomique / Fusion",  price: "€€€",  location: "Paris",                note: "",                            status: "pending", rating: 0 },
+  { id: 120, name: "Fer à Cheval",             cuisine: "🇫🇷 Français",               price: "€€",   location: "Saint-Cloud",          note: "",                            status: "pending", rating: 0 },
+  { id: 121, name: "Capriccio",                cuisine: "🇮🇹 Italien",                price: "€€",   location: "L'Isle-Adam",          note: "",                            status: "pending", rating: 0 },
+  { id: 122, name: "Bouyon Paris",             cuisine: "🌍 Africain",                price: "€€",   location: "Paris",                note: "",                            status: "pending", rating: 0 },
+  { id: 123, name: "Bonvivant",                cuisine: "🇫🇷 Français",               price: "€€",   location: "Paris",                note: "",                            status: "pending", rating: 0 },
+  { id: 124, name: "Relais de l'Entrecôte",   cuisine: "🥩 Viande / Grill",          price: "€€€",  location: "Paris",                note: "",                            status: "pending", rating: 0 },
+  { id: 125, name: "Adouna",                   cuisine: "🌍 Africain",                price: "€€",   location: "Paris",                note: "",                            status: "pending", rating: 0 },
+  { id: 126, name: "African Lounge",           cuisine: "🌍 Africain",                price: "€€",   location: "Paris",                note: "",                            status: "pending", rating: 0 },
+  { id: 127, name: "Cherry Paris",             cuisine: "🍸 Bar / Tapas",             price: "€€",   location: "Paris",                note: "",                            status: "pending", rating: 0 },
+  { id: 128, name: "Chimère",                  cuisine: "🇫🇷 Français",               price: "€€",   location: "Paris",                note: "",                            status: "pending", rating: 0 },
+  { id: 129, name: "Misticia",                 cuisine: "🍽 Gastronomique / Fusion",  price: "€€€",  location: "Paris",                note: "",                            status: "pending", rating: 0 },
+  { id: 130, name: "Le Beaucé",               cuisine: "🇫🇷 Français",               price: "€€",   location: "Paris",                note: "",                            status: "pending", rating: 0 },
+  { id: 131, name: "Petit Nuage",              cuisine: "🥞 Brunch",                  price: "€€",   location: "Paris",                note: "",                            status: "pending", rating: 0 },
+  { id: 132, name: "Holly Belly",              cuisine: "🥞 Brunch",                  price: "€€",   location: "Paris",                note: "",                            status: "pending", rating: 0 },
+  { id: 133, name: "OBTB",                     cuisine: "🍔 Burger",                  price: "€€",   location: "Paris",                note: "",                            status: "pending", rating: 0 },
+  { id: 134, name: "3 Brasseurs",              cuisine: "🇫🇷 Français",               price: "€€",   location: "Paris",                note: "",                            status: "pending", rating: 0 },
+  { id: 135, name: "Bistrot Djougo",           cuisine: "🌍 Africain",                price: "€€",   location: "Paris",                note: "",                            status: "pending", rating: 0 },
+  { id: 136, name: "Zapi",                     cuisine: "🌍 Africain",                price: "€€",   location: "Paris",                note: "",                            status: "pending", rating: 0 },
 ];
 
 // ═══════════════════════════════════════════════════
@@ -19,31 +120,25 @@ const SAMPLE = [
 
 function load() {
   try {
-    const d = localStorage.getItem("restos");
+    const d = localStorage.getItem("restos_v2");
     return d ? JSON.parse(d) : SAMPLE;
   } catch { return SAMPLE; }
 }
 
 function persist() {
-  localStorage.setItem("restos", JSON.stringify(restos));
+  localStorage.setItem("restos_v2", JSON.stringify(restos));
 }
 
 // ═══════════════════════════════════════════════════
 //  STATE
 // ═══════════════════════════════════════════════════
 
-let restos        = load();
-let editId        = null;
-let selectedPrice = "";
+let restos         = load();
+let editId         = null;
+let selectedPrice  = "";
 let selectedRating = 0;
 let selectedStatus = "pending";
-
-let filters = {
-  search:  "",
-  cuisine: "Tous",
-  status:  "Tous",
-  price:   "Tous",
-};
+let filters        = { search: "", cuisine: "Tous", status: "Tous", price: "Tous" };
 
 // ═══════════════════════════════════════════════════
 //  HELPERS
@@ -55,20 +150,11 @@ function toast(msg) {
   const el = document.getElementById("toast");
   el.textContent = msg;
   el.classList.add("show");
-  setTimeout(() => el.classList.remove("show"), 2200);
-}
-
-function starsHTML(rating, interactive = false) {
-  let html = "";
-  for (let i = 1; i <= 5; i++) {
-    html += `<span class="star${i <= rating ? " active" : ""}${interactive ? "" : ""}"
-      ${interactive ? `data-v="${i}"` : ""}>${i <= rating ? "★" : "☆"}</span>`;
-  }
-  return html;
+  setTimeout(() => el.classList.remove("show"), 2400);
 }
 
 // ═══════════════════════════════════════════════════
-//  STATS & PROGRESS
+//  STATS
 // ═══════════════════════════════════════════════════
 
 function renderStats() {
@@ -82,21 +168,18 @@ function renderStats() {
   document.getElementById("statTested").textContent  = tested;
   document.getElementById("statPending").textContent = pending;
   document.getElementById("progressPct").textContent = pct + "%";
-
-  const offset = circ - (pct / 100) * circ;
-  document.getElementById("progressCircle").style.strokeDashoffset = offset;
+  document.getElementById("progressCircle").style.strokeDashoffset = circ - (pct / 100) * circ;
 }
 
 // ═══════════════════════════════════════════════════
-//  FILTERS — render pills
+//  FILTERS
 // ═══════════════════════════════════════════════════
 
 function getCuisines() {
-  return ["Tous", ...new Set(restos.map(r => r.cuisine))];
+  return ["Tous", ...new Set(restos.map(r => r.cuisine).sort())];
 }
 
 function renderFilters() {
-  // Cuisine
   const cc = document.getElementById("filtersCuisine");
   cc.innerHTML = "";
   getCuisines().forEach(c => {
@@ -107,22 +190,19 @@ function renderFilters() {
     cc.appendChild(b);
   });
 
-  // Status
   const sc = document.getElementById("filtersStatus");
   sc.innerHTML = "";
-  ["Tous", "✅ Testés", "⏳ À tester"].forEach(s => {
-    const key = s === "✅ Testés" ? "tested" : s === "⏳ À tester" ? "pending" : "Tous";
+  [["Tous","Tous"], ["✅ Testés","tested"], ["⏳ À tester","pending"]].forEach(([label, key]) => {
     const b = document.createElement("button");
     b.className = "pill" + (filters.status === key ? " active" : "");
-    b.textContent = s;
+    b.textContent = label;
     b.onclick = () => { filters.status = key; renderFilters(); renderList(); };
     sc.appendChild(b);
   });
 
-  // Price
   const pc = document.getElementById("filtersPrice");
   pc.innerHTML = "";
-  ["Tous", "€", "€€", "€€€", "€€€€"].forEach(p => {
+  ["Tous","€","€€","€€€","€€€€"].forEach(p => {
     const b = document.createElement("button");
     b.className = "pill" + (filters.price === p ? " active" : "");
     b.textContent = p;
@@ -132,13 +212,13 @@ function renderFilters() {
 }
 
 // ═══════════════════════════════════════════════════
-//  LIST — render cards
+//  LIST
 // ═══════════════════════════════════════════════════
 
 function getFiltered() {
   const q = filters.search.toLowerCase();
   return restos.filter(r => {
-    const matchSearch  = !q || r.name.toLowerCase().includes(q) || r.location.toLowerCase().includes(q) || r.cuisine.toLowerCase().includes(q);
+    const matchSearch  = !q || r.name.toLowerCase().includes(q) || r.location.toLowerCase().includes(q) || r.cuisine.toLowerCase().includes(q) || (r.note && r.note.toLowerCase().includes(q));
     const matchCuisine = filters.cuisine === "Tous" || r.cuisine === filters.cuisine;
     const matchStatus  = filters.status  === "Tous" || r.status  === filters.status;
     const matchPrice   = filters.price   === "Tous" || r.price   === filters.price;
@@ -152,78 +232,67 @@ function renderList() {
   container.innerHTML = "";
 
   const filtered = getFiltered();
-
-  if (filtered.length === 0) {
-    emptyEl.style.display = "block";
-    return;
-  }
-
+  if (filtered.length === 0) { emptyEl.style.display = "block"; return; }
   emptyEl.style.display = "none";
 
-  // Group by cuisine if no cuisine filter
+  // Group by cuisine
   const grouped = {};
   filtered.forEach(r => {
     if (!grouped[r.cuisine]) grouped[r.cuisine] = [];
     grouped[r.cuisine].push(r);
   });
 
+  const showHeaders = filters.cuisine === "Tous" && Object.keys(grouped).length > 1;
   let delay = 0;
-  Object.entries(grouped).forEach(([cuisine, items]) => {
-    // Section header (only if showing all cuisines)
-    if (filters.cuisine === "Tous" && Object.keys(grouped).length > 1) {
+
+  Object.keys(grouped).sort().forEach(cuisine => {
+    if (showHeaders) {
       const hdr = document.createElement("div");
       hdr.className = "section-header";
-      hdr.textContent = cuisine;
+      hdr.textContent = cuisine + ` (${grouped[cuisine].length})`;
       container.appendChild(hdr);
     }
 
-    items.forEach(r => {
+    grouped[cuisine].forEach(r => {
       const card = document.createElement("div");
       card.className = `resto-card ${r.status}`;
-      card.style.animationDelay = delay * 0.05 + "s";
+      card.style.animationDelay = Math.min(delay, 12) * 0.04 + "s";
       delay++;
 
       const tested = r.status === "tested";
+      const stars  = r.rating ? "★".repeat(r.rating) + "☆".repeat(5 - r.rating) : "";
 
       card.innerHTML = `
         <div class="card-top">
           <div class="card-name">${r.name}</div>
           <div class="card-status ${r.status}">${tested ? "✅ Testé" : "⏳ À tester"}</div>
         </div>
-
         <div class="card-meta">
           <span class="card-cuisine">${r.cuisine}</span>
           <span class="card-price">${r.price}</span>
           <span class="card-location">📍 ${r.location}</span>
-          ${tested && r.rating ? `<span class="card-stars">${"★".repeat(r.rating)}${"☆".repeat(5 - r.rating)}</span>` : ""}
+          ${tested && r.rating ? `<span class="card-stars">${stars}</span>` : ""}
         </div>
-
         ${r.note ? `<div class="card-note">"${r.note}"</div>` : ""}
-
         <div class="card-actions">
           ${tested
-            ? `<button class="card-btn card-btn--untest" data-id="${r.id}">↩ Marquer non testé</button>`
-            : `<button class="card-btn card-btn--test"   data-id="${r.id}">✅ Marquer comme testé</button>`
+            ? `<button class="card-btn card-btn--untest" data-id="${r.id}">↩ Non testé</button>`
+            : `<button class="card-btn card-btn--test"   data-id="${r.id}">✅ Testé !</button>`
           }
-          <button class="card-btn" data-edit="${r.id}">✏️ Modifier</button>
+          <button class="card-btn" data-edit="${r.id}">✏️</button>
           <button class="card-btn card-btn--delete" data-del="${r.id}">🗑</button>
         </div>
       `;
-
       container.appendChild(card);
     });
   });
 
-  // Listeners
-  container.querySelectorAll("[data-id]").forEach(btn => {
-    btn.addEventListener("click", () => toggleStatus(parseFloat(btn.dataset.id)));
-  });
-  container.querySelectorAll("[data-edit]").forEach(btn => {
-    btn.addEventListener("click", () => openEdit(parseFloat(btn.dataset.edit)));
-  });
-  container.querySelectorAll("[data-del]").forEach(btn => {
-    btn.addEventListener("click", () => deleteResto(parseFloat(btn.dataset.del)));
-  });
+  container.querySelectorAll("[data-id]").forEach(btn =>
+    btn.addEventListener("click", () => toggleStatus(parseFloat(btn.dataset.id))));
+  container.querySelectorAll("[data-edit]").forEach(btn =>
+    btn.addEventListener("click", () => openEdit(parseFloat(btn.dataset.edit))));
+  container.querySelectorAll("[data-del]").forEach(btn =>
+    btn.addEventListener("click", () => deleteResto(parseFloat(btn.dataset.del))));
 }
 
 // ═══════════════════════════════════════════════════
@@ -245,7 +314,7 @@ function deleteResto(id) {
   if (!confirm("Supprimer ce restaurant ?")) return;
   restos = restos.filter(r => r.id !== id);
   persist();
-  toast("🗑 Restaurant supprimé");
+  toast("🗑 Supprimé");
   renderStats();
   renderFilters();
   renderList();
@@ -255,58 +324,46 @@ function deleteResto(id) {
 //  MODAL
 // ═══════════════════════════════════════════════════
 
-function openAdd() {
-  editId = null;
-  selectedPrice  = "";
-  selectedRating = 0;
-  selectedStatus = "pending";
-
-  document.getElementById("modalTitle").textContent = "Nouveau restaurant";
+function resetModal() {
   document.getElementById("fName").value     = "";
   document.getElementById("fCuisine").value  = "";
   document.getElementById("fLocation").value = "";
   document.getElementById("fNote").value     = "";
-
-  // Reset price buttons
+  selectedPrice = ""; selectedRating = 0; selectedStatus = "pending";
   document.querySelectorAll(".price-btn").forEach(b => b.classList.remove("active"));
-  // Reset status toggle
   document.querySelectorAll(".status-btn").forEach(b => b.classList.remove("active"));
   document.querySelector(".status-btn--pending").classList.add("active");
-  // Reset stars
   document.getElementById("ratingGroup").style.display = "none";
   refreshStars(0);
+  ["fName","fCuisine","fLocation"].forEach(id => document.getElementById(id).style.borderColor = "");
+  document.querySelector(".price-selector").style.outline = "";
+}
 
+function openAdd() {
+  editId = null;
+  resetModal();
+  document.getElementById("modalTitle").textContent = "Nouveau restaurant";
   document.getElementById("overlay").classList.add("open");
-  document.getElementById("fName").focus();
+  setTimeout(() => document.getElementById("fName").focus(), 100);
 }
 
 function openEdit(id) {
   const r = restos.find(r => r.id === id);
   if (!r) return;
   editId = id;
-  selectedPrice  = r.price;
-  selectedRating = r.rating || 0;
-  selectedStatus = r.status;
-
-  document.getElementById("modalTitle").textContent = "Modifier le restaurant";
+  resetModal();
+  selectedPrice = r.price; selectedRating = r.rating || 0; selectedStatus = r.status;
+  document.getElementById("modalTitle").textContent = "Modifier";
   document.getElementById("fName").value     = r.name;
   document.getElementById("fCuisine").value  = r.cuisine;
   document.getElementById("fLocation").value = r.location;
   document.getElementById("fNote").value     = r.note || "";
-
-  // Price buttons
-  document.querySelectorAll(".price-btn").forEach(b => {
-    b.classList.toggle("active", b.dataset.price === r.price);
-  });
-
-  // Status
+  document.querySelectorAll(".price-btn").forEach(b =>
+    b.classList.toggle("active", b.dataset.price === r.price));
   document.querySelectorAll(".status-btn").forEach(b => b.classList.remove("active"));
   document.querySelector(`.status-btn--${r.status}`).classList.add("active");
-
-  // Rating
   document.getElementById("ratingGroup").style.display = r.status === "tested" ? "block" : "none";
   refreshStars(r.rating || 0);
-
   document.getElementById("overlay").classList.add("open");
 }
 
@@ -320,45 +377,36 @@ function saveModal() {
   const location = document.getElementById("fLocation").value.trim();
   const note     = document.getElementById("fNote").value.trim();
 
-  // Validation
-  let err = false;
-  if (!name)     { document.getElementById("fName").style.borderColor = "var(--red)"; err = true; }
-  else             document.getElementById("fName").style.borderColor = "";
-  if (!cuisine)  { document.getElementById("fCuisine").style.borderColor = "var(--red)"; err = true; }
-  else             document.getElementById("fCuisine").style.borderColor = "";
-  if (!location) { document.getElementById("fLocation").style.borderColor = "var(--red)"; err = true; }
-  else             document.getElementById("fLocation").style.borderColor = "";
-  if (!selectedPrice) { document.querySelector(".price-selector").style.outline = "2px solid var(--red)"; err = true; }
-  else                  document.querySelector(".price-selector").style.outline = "";
-  if (err) return;
+  document.getElementById("fName").style.borderColor     = !name     ? "var(--red)" : "";
+  document.getElementById("fCuisine").style.borderColor  = !cuisine  ? "var(--red)" : "";
+  document.getElementById("fLocation").style.borderColor = !location ? "var(--red)" : "";
+  document.querySelector(".price-selector").style.outline = !selectedPrice ? "2px solid var(--red)" : "";
+  if (!name || !cuisine || !location || !selectedPrice) return;
 
-  const data = { name, cuisine, price: selectedPrice, location, note, status: selectedStatus, rating: selectedStatus === "tested" ? selectedRating : 0 };
+  const data = { name, cuisine, price: selectedPrice, location, note,
+    status: selectedStatus, rating: selectedStatus === "tested" ? selectedRating : 0 };
 
   if (editId !== null) {
     restos = restos.map(r => r.id === editId ? { ...r, ...data } : r);
-    toast("✏️ Restaurant modifié !");
+    toast("✏️ Modifié !");
   } else {
     restos.push({ id: uid(), ...data });
-    toast("🎉 Restaurant ajouté !");
+    toast("🎉 Ajouté !");
   }
 
-  persist();
-  closeModal();
-  renderStats();
-  renderFilters();
-  renderList();
+  persist(); closeModal(); renderStats(); renderFilters(); renderList();
 }
 
-// ─── Stars ───
 function refreshStars(val) {
   document.querySelectorAll("#starsInput .star").forEach(s => {
-    s.classList.toggle("active", parseInt(s.dataset.v) <= val);
-    s.textContent = parseInt(s.dataset.v) <= val ? "★" : "☆";
+    const v = parseInt(s.dataset.v);
+    s.classList.toggle("active", v <= val);
+    s.textContent = v <= val ? "★" : "☆";
   });
 }
 
 // ═══════════════════════════════════════════════════
-//  EVENT LISTENERS
+//  EVENTS
 // ═══════════════════════════════════════════════════
 
 document.getElementById("btnAdd").addEventListener("click", openAdd);
@@ -366,20 +414,12 @@ document.getElementById("btnModalCancel").addEventListener("click", closeModal);
 document.getElementById("modalClose").addEventListener("click", closeModal);
 document.getElementById("btnModalSave").addEventListener("click", saveModal);
 
-// Close on overlay click
 document.getElementById("overlay").addEventListener("click", function(e) {
   if (e.target === this) closeModal();
 });
 
-// ESC key
-document.addEventListener("keydown", e => {
-  if (e.key === "Escape") closeModal();
-  if (e.key === "Enter" && document.getElementById("overlay").classList.contains("open")) {
-    saveModal();
-  }
-});
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
 
-// Search
 document.getElementById("searchInput").addEventListener("input", function() {
   filters.search = this.value;
   document.getElementById("searchClear").style.display = this.value ? "block" : "none";
@@ -393,7 +433,6 @@ document.getElementById("searchClear").addEventListener("click", () => {
   renderList();
 });
 
-// Price buttons
 document.querySelectorAll(".price-btn").forEach(btn => {
   btn.addEventListener("click", () => {
     selectedPrice = btn.dataset.price;
@@ -402,28 +441,20 @@ document.querySelectorAll(".price-btn").forEach(btn => {
   });
 });
 
-// Status toggle
 document.querySelectorAll(".status-btn").forEach(btn => {
   btn.addEventListener("click", () => {
     selectedStatus = btn.dataset.status;
     document.querySelectorAll(".status-btn").forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
-    document.getElementById("ratingGroup").style.display = selectedStatus === "tested" ? "block" : "none";
+    document.getElementById("ratingGroup").style.display =
+      selectedStatus === "tested" ? "block" : "none";
   });
 });
 
-// Stars
 document.querySelectorAll("#starsInput .star").forEach(star => {
-  star.addEventListener("click", () => {
-    selectedRating = parseInt(star.dataset.v);
-    refreshStars(selectedRating);
-  });
-  star.addEventListener("mouseover", () => {
-    refreshStars(parseInt(star.dataset.v));
-  });
-  star.addEventListener("mouseout", () => {
-    refreshStars(selectedRating);
-  });
+  star.addEventListener("click",    () => { selectedRating = parseInt(star.dataset.v); refreshStars(selectedRating); });
+  star.addEventListener("mouseover",() => refreshStars(parseInt(star.dataset.v)));
+  star.addEventListener("mouseout", () => refreshStars(selectedRating));
 });
 
 // ═══════════════════════════════════════════════════
@@ -431,9 +462,7 @@ document.querySelectorAll("#starsInput .star").forEach(star => {
 // ═══════════════════════════════════════════════════
 
 if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("sw.js").catch(() => {});
-  });
+  window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
 }
 
 // ═══════════════════════════════════════════════════
