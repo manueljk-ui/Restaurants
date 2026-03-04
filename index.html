@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mes Restos</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#1A0A00" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Mes Restos" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header__top">
+      <div class="header__brand">
+        <span class="header__icon">🍽</span>
+        <div>
+          <h1 class="logo">Mes Restos</h1>
+          <p class="tagline">Ta liste de restaurants perso</p>
+        </div>
+      </div>
+      <button class="btn-add" id="btnAdd">+ Ajouter</button>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="stats-bar">
+      <div class="stat">
+        <span class="stat__num" id="statTotal">0</span>
+        <span class="stat__label">Total</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat__num" id="statTested" style="color:var(--green)">0</span>
+        <span class="stat__label">Testés ✓</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat__num" id="statPending" style="color:var(--orange)">0</span>
+        <span class="stat__label">À tester</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat progress-stat">
+        <div class="progress-ring-wrap">
+          <svg viewBox="0 0 36 36" class="progress-ring">
+            <circle cx="18" cy="18" r="15" fill="none" stroke="#2a1f14" stroke-width="3"/>
+            <circle cx="18" cy="18" r="15" fill="none" stroke="var(--green)" stroke-width="3"
+              stroke-dasharray="94.2" stroke-dashoffset="94.2"
+              stroke-linecap="round" id="progressCircle"
+              style="transform:rotate(-90deg);transform-origin:center;transition:stroke-dashoffset .8s ease"/>
+          </svg>
+          <span class="progress-ring__pct" id="progressPct">0%</span>
+        </div>
+        <span class="stat__label">Complété</span>
+      </div>
+    </div>
+
+    <!-- Search + Filters -->
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input class="search-input" id="searchInput" placeholder="Chercher un resto, une ville…" />
+      <button class="search-clear" id="searchClear" style="display:none">✕</button>
+    </div>
+
+    <div class="filters-row">
+      <div class="filters-scroll" id="filtersCuisine"></div>
+    </div>
+    <div class="filters-row">
+      <div class="filters-scroll" id="filtersStatus"></div>
+      <div class="filters-scroll" id="filtersPrice"></div>
+    </div>
+  </header>
+
+  <!-- RESTAURANT LIST -->
+  <main class="main" id="restoList"></main>
+
+  <!-- EMPTY STATE -->
+  <div class="empty-state" id="emptyState" style="display:none">
+    <div class="empty-state__emoji">🍴</div>
+    <p class="empty-state__title">Aucun restaurant trouvé</p>
+    <p class="empty-state__sub">Modifie ta recherche ou ajoute un nouveau resto !</p>
+  </div>
+
+  <!-- MODAL ADD / EDIT -->
+  <div class="overlay" id="overlay">
+    <div class="modal">
+      <div class="modal__header">
+        <h2 class="modal__title" id="modalTitle">Nouveau restaurant</h2>
+        <button class="modal__close" id="modalClose">✕</button>
+      </div>
+
+      <div class="form-grid">
+        <div class="form-group form-group--full">
+          <label class="form-label">Nom du restaurant *</label>
+          <input class="input" id="fName" placeholder="ex: Le Petit Bistro" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Type de cuisine *</label>
+          <select class="input" id="fCuisine">
+            <option value="">— Choisir —</option>
+            <option>🇫🇷 Français</option>
+            <option>🇮🇹 Italien</option>
+            <option>🇯🇵 Japonais</option>
+            <option>🇲🇽 Mexicain</option>
+            <option>🇱🇧 Libanais</option>
+            <option>🇮🇳 Indien</option>
+            <option>🇨🇳 Chinois</option>
+            <option>🇹🇭 Thaïlandais</option>
+            <option>🇬🇷 Grec</option>
+            <option>🥩 Viande / Grill</option>
+            <option>🐟 Poissons / Fruits de mer</option>
+            <option>🥗 Végétarien / Vegan</option>
+            <option>🍔 Burger</option>
+            <option>🍕 Pizza</option>
+            <option>🌍 Africain</option>
+            <option>🌶 Autre</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Fourchette de prix *</label>
+          <div class="price-selector" id="priceSelector">
+            <button class="price-btn" data-price="€">€</button>
+            <button class="price-btn" data-price="€€">€€</button>
+            <button class="price-btn" data-price="€€€">€€€</button>
+            <button class="price-btn" data-price="€€€€">€€€€</button>
+          </div>
+        </div>
+
+        <div class="form-group form-group--full">
+          <label class="form-label">Adresse / Ville *</label>
+          <input class="input" id="fLocation" placeholder="ex: 12 rue de Rivoli, Paris" />
+        </div>
+
+        <div class="form-group form-group--full">
+          <label class="form-label">Note personnelle</label>
+          <textarea class="input input--textarea" id="fNote" placeholder="Spécialité, ambiance, conseil…"></textarea>
+        </div>
+
+        <div class="form-group form-group--full">
+          <label class="form-label">Statut</label>
+          <div class="status-toggle" id="statusToggle">
+            <button class="status-btn status-btn--pending active" data-status="pending">⏳ À tester</button>
+            <button class="status-btn status-btn--tested" data-status="tested">✅ Déjà testé</button>
+          </div>
+        </div>
+
+        <div class="form-group form-group--full" id="ratingGroup" style="display:none">
+          <label class="form-label">Ma note</label>
+          <div class="stars" id="starsInput">
+            <span class="star" data-v="1">★</span>
+            <span class="star" data-v="2">★</span>
+            <span class="star" data-v="3">★</span>
+            <span class="star" data-v="4">★</span>
+            <span class="star" data-v="5">★</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal__actions">
+        <button class="btn-ghost" id="btnModalCancel">Annuler</button>
+        <button class="btn-save" id="btnModalSave">Enregistrer</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
